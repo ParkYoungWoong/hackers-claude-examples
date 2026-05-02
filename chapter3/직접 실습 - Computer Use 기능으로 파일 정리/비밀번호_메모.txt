@@ -1,0 +1,27 @@
+[시스템 접속 정보]
+작성일: 2026-01-15
+작성자: 김민준
+
+■ 사내 인트라넷
+  URL: http://intranet.lunasoft.co.kr
+  ID: minjun.kim
+  PW: Luna@2026!
+
+■ Google Workspace (업무용)
+  ID: minjun.kim@lunasoft.co.kr
+  PW: Gwork#9271
+
+■ Slack
+  Workspace: lunasoft.slack.com
+  ID: minjun.kim@lunasoft.co.kr
+
+■ AWS 콘솔 (읽기 전용)
+  Account: 123456789012
+  ID: minjun-readonly
+  PW: Aws$ReadOnly22
+
+■ 광고 대시보드 (Google Ads)
+  ID: marketing@lunasoft.co.kr
+  PW: GAds!Marketing7
+
+※ 이 파일은 반드시 암호화 폴더에 보관하세요.
