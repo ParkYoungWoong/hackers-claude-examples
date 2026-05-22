@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -WindowStyle Hidden -c \"(New-Object Media.SoundPlayer 'C:/Windows/Media/Windows Notify System Generic.wav').PlaySync()\"" 
+          },
+          {
+            "type": "command",
+            "command": "node C:/Users/사용자이름/.claude/hooks/notify-slack.mjs"
+          }
+        ]
+      }
+    ]
+  }
+}
