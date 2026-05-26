@@ -18,11 +18,13 @@ export function HomePage() {
   } = useMovieSearch(query)
 
   const movies = data?.pages.flatMap(p => p.Search ?? []) ?? []
-  const noResult = query.length > 0 && !isLoading && movies.length === 0
+  const noResult =
+    query.length > 0 && !isLoading && !isError && movies.length === 0
 
   return (
     <div>
       <SearchForm
+        key={query}
         initialQuery={query}
         onSearch={q => setSearchParams({ s: q })}
       />

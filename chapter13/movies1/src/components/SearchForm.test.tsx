@@ -19,6 +19,20 @@ describe('SearchForm', () => {
     expect(onSearch).toHaveBeenCalledWith('batman')
   })
 
+  it('입력 후 엔터로 제출하면 검색어로 onSearch를 호출한다', async () => {
+    const onSearch = vi.fn()
+    render(
+      <SearchForm
+        onSearch={onSearch}
+        initialQuery=""
+      />
+    )
+
+    await userEvent.type(screen.getByRole('textbox'), 'batman{Enter}')
+
+    expect(onSearch).toHaveBeenCalledWith('batman')
+  })
+
   it('빈 입력은 onSearch를 호출하지 않는다', async () => {
     const onSearch = vi.fn()
     render(

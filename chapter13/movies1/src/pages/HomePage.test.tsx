@@ -52,6 +52,7 @@ describe('HomePage 통합', () => {
     expect(
       await screen.findByText('검색 중 문제가 발생했습니다')
     ).toBeInTheDocument()
+    expect(screen.queryByText('검색 결과가 없습니다')).not.toBeInTheDocument()
   })
 
   it('스크롤 sentinel 교차 시 다음 페이지를 누적한다', async () => {
