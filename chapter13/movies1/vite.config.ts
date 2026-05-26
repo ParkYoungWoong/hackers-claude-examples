@@ -12,9 +12,7 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] })
   ],
   resolve: {
-    alias: [
-      { find: '@', replacement: '/src' }
-    ]
+    alias: [{ find: '@', replacement: '/src' }]
   },
   test: {
     environment: 'jsdom',

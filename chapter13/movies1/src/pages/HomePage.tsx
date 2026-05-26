@@ -18,8 +18,7 @@ export function HomePage() {
   } = useMovieSearch(query)
 
   const movies = data?.pages.flatMap(p => p.Search ?? []) ?? []
-  const noResult =
-    query.length > 0 && !isLoading && movies.length === 0
+  const noResult = query.length > 0 && !isLoading && movies.length === 0
 
   return (
     <div>

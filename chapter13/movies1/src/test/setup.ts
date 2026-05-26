@@ -29,7 +29,9 @@ class IntersectionObserverMock {
 }
 vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
 ;(
-  globalThis as unknown as { IntersectionObserverMock: typeof IntersectionObserverMock }
+  globalThis as unknown as {
+    IntersectionObserverMock: typeof IntersectionObserverMock
+  }
 ).IntersectionObserverMock = IntersectionObserverMock
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))

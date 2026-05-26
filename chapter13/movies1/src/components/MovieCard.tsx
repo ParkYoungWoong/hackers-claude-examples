@@ -11,7 +11,10 @@ export function MovieCard({ movie }: Props) {
   const poster = movie.Poster === 'N/A' ? PLACEHOLDER : movie.Poster
   return (
     <Link to={`/movie/${movie.imdbID}`}>
-      <img src={poster} alt={movie.Title} />
+      <img
+        src={poster}
+        alt={movie.Title}
+      />
       <h2>{movie.Title}</h2>
       <p>{movie.Year}</p>
     </Link>

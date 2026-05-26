@@ -21,6 +21,8 @@ describe('MovieDetailPage', () => {
       )
     )
     renderWithRouter(routes, '/movie/tt0000000')
-    expect(await screen.findByText('상세 정보를 불러오지 못했습니다')).toBeInTheDocument()
+    expect(
+      await screen.findByText('상세 정보를 불러오지 못했습니다')
+    ).toBeInTheDocument()
   })
 })

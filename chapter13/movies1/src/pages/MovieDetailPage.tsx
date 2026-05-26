@@ -23,9 +23,14 @@ export function MovieDetailPage() {
   return (
     <div>
       <Link to="/">목록으로</Link>
-      <img src={poster} alt={data.Title} />
+      <img
+        src={poster}
+        alt={data.Title}
+      />
       <h1>{data.Title}</h1>
-      <p>{data.Year} / {data.Rated} / {data.Runtime}</p>
+      <p>
+        {data.Year} / {data.Rated} / {data.Runtime}
+      </p>
       <p>{data.Genre}</p>
       <p>감독: {data.Director}</p>
       <p>출연: {data.Actors}</p>

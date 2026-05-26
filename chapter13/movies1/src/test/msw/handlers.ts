@@ -49,7 +49,10 @@ export const handlers = [
       const page = Number(url.searchParams.get('page') ?? '1')
       const Search = makePage(page)
       if (Search.length === 0) {
-        return HttpResponse.json({ Response: 'False', Error: 'Movie not found!' })
+        return HttpResponse.json({
+          Response: 'False',
+          Error: 'Movie not found!'
+        })
       }
       return HttpResponse.json({
         Search,

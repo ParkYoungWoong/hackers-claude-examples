@@ -5,7 +5,11 @@ import { getNextPageParam } from './pagination'
 function page(count: number, total: number): SearchResponse {
   return {
     Search: Array.from({ length: count }, (_, i) => ({
-      Title: `M${i}`, Year: '2020', imdbID: `tt${i}`, Type: 'movie', Poster: 'N/A'
+      Title: `M${i}`,
+      Year: '2020',
+      imdbID: `tt${i}`,
+      Type: 'movie',
+      Poster: 'N/A'
     })),
     totalResults: String(total),
     Response: 'True'
@@ -24,7 +28,10 @@ describe('getNextPageParam', () => {
   })
 
   it('결과 없음(Response False)이면 undefined를 반환한다', () => {
-    const empty: SearchResponse = { Response: 'False', Error: 'Movie not found!' }
+    const empty: SearchResponse = {
+      Response: 'False',
+      Error: 'Movie not found!'
+    }
     expect(getNextPageParam(empty, [empty], 1)).toBeUndefined()
   })
 })

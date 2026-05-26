@@ -10,7 +10,15 @@ describe('searchMovies', () => {
       http.get('https://www.omdbapi.com/', ({ request }) => {
         captured = new URL(request.url)
         return HttpResponse.json({
-          Search: [{ Title: 'A', Year: '2020', imdbID: 'tt1', Type: 'movie', Poster: 'N/A' }],
+          Search: [
+            {
+              Title: 'A',
+              Year: '2020',
+              imdbID: 'tt1',
+              Type: 'movie',
+              Poster: 'N/A'
+            }
+          ],
           totalResults: '1',
           Response: 'True'
         })
@@ -44,7 +52,11 @@ describe('getMovieDetail', () => {
     server.use(
       http.get('https://www.omdbapi.com/', ({ request }) => {
         captured = new URL(request.url)
-        return HttpResponse.json({ Title: 'Batman', imdbID: 'tt0372784', Response: 'True' })
+        return HttpResponse.json({
+          Title: 'Batman',
+          imdbID: 'tt0372784',
+          Response: 'True'
+        })
       })
     )
 

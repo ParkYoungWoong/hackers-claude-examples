@@ -9,7 +9,12 @@ interface Props {
   onLoadMore: () => void
 }
 
-export function MovieList({ movies, hasNextPage, isFetchingNextPage, onLoadMore }: Props) {
+export function MovieList({
+  movies,
+  hasNextPage,
+  isFetchingNextPage,
+  onLoadMore
+}: Props) {
   const sentinelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -34,7 +39,10 @@ export function MovieList({ movies, hasNextPage, isFetchingNextPage, onLoadMore 
           </li>
         ))}
       </ul>
-      <div ref={sentinelRef} data-testid="sentinel" />
+      <div
+        ref={sentinelRef}
+        data-testid="sentinel"
+      />
       {isFetchingNextPage && <p>Loading more...</p>}
     </div>
   )

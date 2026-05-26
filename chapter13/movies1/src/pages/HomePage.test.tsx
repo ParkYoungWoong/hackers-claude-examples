@@ -49,22 +49,29 @@ describe('HomePage 통합', () => {
       )
     )
     renderWithRouter(routes, '/?s=movie')
-    expect(await screen.findByText('검색 중 문제가 발생했습니다')).toBeInTheDocument()
+    expect(
+      await screen.findByText('검색 중 문제가 발생했습니다')
+    ).toBeInTheDocument()
   })
 
   it('스크롤 sentinel 교차 시 다음 페이지를 누적한다', async () => {
     renderWithRouter(routes, '/?s=movie')
     await screen.findByText('Movie 1')
 
+    type GlobalWithIO = {
+      IntersectionObserverMock: { instances: { trigger(): void }[] }
+    }
+
     // sentinel이 렌더되고 IntersectionObserver가 생성될 때까지 대기
     await waitFor(() => {
-      const IO = (globalThis as any).IntersectionObserverMock
+      const IO = (globalThis as unknown as GlobalWithIO)
+        .IntersectionObserverMock
       expect(IO.instances.length).toBeGreaterThan(0)
     })
 
     // 2페이지 로드 트리거
-    const IO = (globalThis as any).IntersectionObserverMock
-    const inst = IO.instances.at(-1)
+    const IO = (globalThis as unknown as GlobalWithIO).IntersectionObserverMock
+    const inst = IO.instances.at(-1)!
     inst.trigger()
 
     expect(await screen.findByText('Movie 11')).toBeInTheDocument()
