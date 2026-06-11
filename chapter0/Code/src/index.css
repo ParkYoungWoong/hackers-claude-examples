@@ -1,0 +1,393 @@
+/* ============================================================
+   TODOS - NEO BRUTALISM
+   직각, 두꺼운 검정 보더, 블러 없는 하드 그림자, 대문자 모노스페이스
+   ============================================================ */
+
+:root {
+  --ink: #111111;
+  --paper: #fffdf3;
+  --yellow: #ffd400;
+  --red: #ff3b1f;
+  --blue: #2d6bff;
+  --green: #16c060;
+
+  --border: 4px solid var(--ink);
+  --shadow: 7px 7px 0 var(--ink);
+  --shadow-lg: 11px 11px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+
+  --mono: 'Space Mono', 'Courier New', monospace;
+  --display: 'Archivo Black', 'Arial Black', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--mono);
+  color: var(--ink);
+  background-color: var(--yellow);
+  /* 두 방향 격자 + 두꺼운 가로줄로 만든 종이 그리드 텍스처 */
+  background-image:
+    linear-gradient(var(--ink) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(17, 17, 17, 0.18) 1px, transparent 1px);
+  background-size:
+    100% 44px,
+    24px 24px,
+    24px 24px;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  display: flex;
+  justify-content: center;
+  padding: clamp(16px, 5vw, 64px) 16px 96px;
+}
+
+/* ---------- 레이아웃 ---------- */
+.app {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  animation: drop-in 0.5s cubic-bezier(0.2, 1.1, 0.4, 1) both;
+}
+
+/* ---------- 헤더 ---------- */
+.app__head {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 26px 26px 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 헤더 우상단 대각선 줄무늬 데코 */
+.app__head::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 130px;
+  height: 130px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--ink) 0 6px,
+    transparent 6px 12px
+  );
+  transform: rotate(0deg);
+  opacity: 0.9;
+}
+
+.app__title {
+  font-family: var(--display);
+  font-size: clamp(48px, 13vw, 86px);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.app__title em {
+  font-style: normal;
+  color: var(--paper);
+  background: var(--red);
+  padding: 0 0.08em;
+  -webkit-text-stroke: 2px var(--ink);
+  box-decoration-break: clone;
+}
+
+.app__sub {
+  display: inline-block;
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  background: var(--ink);
+  color: var(--yellow);
+  padding: 6px 12px;
+}
+
+/* ---------- 카운터 바 ---------- */
+.counter {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  background: var(--paper);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.counter span {
+  padding: 12px 16px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+.counter span:first-child {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.counter span:last-child {
+  flex: 1;
+  text-align: right;
+}
+
+.counter b {
+  font-family: var(--display);
+  font-size: 18px;
+}
+
+/* ---------- 입력 폼 ---------- */
+.add {
+  display: flex;
+  gap: 14px;
+}
+
+.field {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 16px;
+  border: var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  outline: none;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.12s ease;
+}
+
+.field::placeholder {
+  color: #9a948a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+}
+
+.field:focus {
+  background: var(--yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---------- 버튼 공통 ---------- */
+.btn {
+  font-family: var(--mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.06s ease,
+    box-shadow 0.06s ease,
+    background 0.1s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.btn:focus-visible {
+  outline: 3px dashed var(--ink);
+  outline-offset: 3px;
+}
+
+.btn--add {
+  padding: 0 26px;
+  font-family: var(--display);
+  font-size: 17px;
+  background: var(--ink);
+  color: var(--yellow);
+  box-shadow: var(--shadow);
+}
+
+.btn--add:hover {
+  box-shadow: var(--shadow-lg);
+  background: var(--red);
+  color: var(--paper);
+}
+
+/* 작은 액션 버튼 */
+.btn--sm {
+  padding: 9px 14px;
+  font-size: 12px;
+}
+
+.btn--edit:hover {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+.btn--del:hover {
+  background: var(--red);
+  color: var(--paper);
+}
+
+.btn--save:hover {
+  background: var(--green);
+  color: var(--ink);
+}
+
+/* ---------- 리스트 ---------- */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+  animation: slide-in 0.32s cubic-bezier(0.2, 1.1, 0.4, 1) both;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.item:hover {
+  transform: translate(-2px, -2px) rotate(-0.4deg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 좌측 번호 마커 */
+.item__num {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  font-family: var(--display);
+  font-size: 15px;
+}
+
+.item__text {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 700;
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+.item__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* 수정 모드 폼 */
+.edit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.edit .field {
+  padding: 10px 12px;
+  box-shadow: var(--shadow-sm);
+  background: var(--yellow);
+}
+
+/* ---------- 빈 상태 ---------- */
+.empty {
+  border: 4px dashed var(--ink);
+  background: var(--paper);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.empty b {
+  display: block;
+  font-family: var(--display);
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.empty span {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ---------- 푸터 ---------- */
+.foot {
+  text-align: center;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.65;
+}
+
+/* ---------- 애니메이션 ---------- */
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-18px) rotate(-1.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
