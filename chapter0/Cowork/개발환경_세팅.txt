@@ -1,0 +1,30 @@
+2024-07-20 개발환경 세팅 메모
+
+맥북 새로 세팅할 때 체크리스트
+
+[필수 설치]
+- Homebrew: /bin/bash -c "$(curl -fsSL ...)"
+- Git: brew install git
+- Node.js: nvm 통해서 설치 (직접 설치 X)
+- Python: pyenv 통해서 설치
+- VS Code / Cursor
+- iTerm2 + Oh My Zsh
+- Docker Desktop
+
+[Claude Code 세팅]
+- npm install -g @anthropic-ai/claude-code
+- ANTHROPIC_API_KEY 환경변수 설정
+- claude /config 에서 모델 선택
+- MCP 서버 설정: ~/.config/claude/claude_desktop_config.json
+
+[자주 쓰는 VS Code 확장]
+- ESLint, Prettier
+- GitLens
+- Thunder Client (API 테스트)
+- Error Lens
+
+[dotfiles 관리]
+GitHub에 dotfiles 레포 만들어서 관리 중
+.zshrc, .gitconfig, .vimrc 등 버전 관리
+
+다음 세팅 때는 설치 스크립트 만들어야겠음. 매번 이거 보면서 하기 귀찮음.

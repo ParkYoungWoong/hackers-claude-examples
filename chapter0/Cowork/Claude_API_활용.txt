@@ -1,0 +1,33 @@
+날짜: 2024-10-20
+
+Claude API 정리
+
+기본 호출:
+import anthropic
+client = anthropic.Anthropic()
+message = client.messages.create(
+    model="claude-opus-4-5",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Hello"}]
+)
+
+모델 선택 기준:
+- Haiku: 빠르고 저렴, 단순 분류/추출
+- Sonnet: 균형 잡힌 성능, 대부분 작업에 적합
+- Opus: 최고 성능, 복잡한 추론 필요할 때
+
+Tool Use (함수 호출):
+- tools 파라미터에 스키마 정의
+- 에이전트 구현의 핵심 기능
+- 병렬 tool_use 지원함
+
+프롬프트 캐싱:
+- cache_control: {"type": "ephemeral"} 지정
+- 긴 시스템 프롬프트나 문서 있을 때 비용 절감
+- TTL 5분
+
+스트리밍:
+- with client.messages.stream() as stream:
+- 긴 응답일 때 UX 개선
+
+TODO: Vision 기능도 정리하기 (이미지 분석)

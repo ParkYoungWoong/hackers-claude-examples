@@ -1,0 +1,19 @@
+2024-10-03 메모
+
+ReAct 패턴 공부 정리
+
+ReAct = Reasoning + Acting
+- 생각(Thought) -> 행동(Action) -> 관찰(Observation) 을 반복
+- 단순 프롬프트보다 복잡한 작업에 훨씬 효과적
+
+예시 흐름:
+Thought: 사용자가 현재 서울 날씨를 물어봤다. 날씨 API를 호출해야겠다.
+Action: get_weather(city="Seoul")
+Observation: {"temp": 23, "condition": "맑음"}
+Thought: 결과를 자연어로 전달하면 된다.
+Answer: 현재 서울 날씨는 23도이며 맑습니다.
+
+장점: 중간 추론 과정이 투명하게 보임 -> 디버깅 쉬움
+단점: 토큰 소모 많음, 루프 탈출 조건 잘 설계해야 함
+
+참고 논문: "ReAct: Synergizing Reasoning and Acting in Language Models" (Yao et al., 2022)

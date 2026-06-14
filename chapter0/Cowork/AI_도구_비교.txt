@@ -1,0 +1,31 @@
+2024-11-05
+
+코딩 보조 AI 도구 비교 메모
+
+[Claude Code]
+- Anthropic 공식 CLI 도구
+- 코드베이스 전체 이해 수준이 높음
+- MCP 통합 강력
+- 에이전트 모드에서 파일 직접 수정 가능
+- 비용: API 사용량 기반
+
+[Cursor]
+- VSCode 기반 에디터
+- Tab 자동완성이 매우 자연스러움
+- 코드베이스 인덱싱으로 context 잘 파악
+- 월정액 모델
+
+[GitHub Copilot]
+- GitHub/Microsoft 생태계와 통합
+- IDE 플러그인 형태로 익숙함
+- 기업 버전은 사내 코드로 학습 안 됨 보장
+
+[Windsurf]
+- Cascade라는 에이전트 기능
+- 빠른 실행 속도가 장점
+- 신생이라 아직 기능 적음
+
+개인 결론:
+- 일상 코딩: Cursor (자동완성 편함)
+- 복잡한 작업/자동화: Claude Code (에이전트 능력)
+- 팀 협업: GitHub Copilot (통합 편함)
