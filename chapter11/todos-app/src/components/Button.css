@@ -1,0 +1,131 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.btn {
+  --btn-radius: 12px;
+  --btn-height: 50px;
+  --btn-padding-x: 20px;
+  --btn-font-size: 16px;
+  --btn-icon-size: 18px;
+  --btn-gap: 8px;
+
+  --btn-primary-bg: #0d6efd;
+  --btn-primary-bg-hover: #0e79ff;
+  --btn-primary-label: #ffffff;
+  --btn-primary-label-hover: #ffffff;
+
+  --btn-secondary-bg: #1e293b;
+  --btn-secondary-bg-hover: #1d2738;
+  --btn-secondary-label: #adbcd4;
+  --btn-secondary-label-hover: #a4b3c9;
+
+  --btn-danger-bg: #341924;
+  --btn-danger-bg-hover: #311822;
+  --btn-danger-label: #ff4444;
+  --btn-danger-label-hover: #f24141;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap);
+
+  height: var(--btn-height);
+  padding: 0 var(--btn-padding-x);
+  border: 0;
+  border-radius: var(--btn-radius);
+
+  font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  font-size: var(--btn-font-size);
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn__icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--btn-icon-size);
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+}
+
+.btn__label {
+  line-height: normal;
+}
+
+.btn--small {
+  --btn-height: 32px;
+  --btn-padding-x: 14px;
+  --btn-font-size: 14px;
+  --btn-radius: 8px;
+}
+
+.btn--primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-label);
+}
+.btn--primary:not(:disabled):hover {
+  background-color: var(--btn-primary-bg-hover);
+  color: var(--btn-primary-label-hover);
+}
+
+.btn--secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-label);
+}
+.btn--secondary:not(:disabled):hover {
+  background-color: var(--btn-secondary-bg-hover);
+  color: var(--btn-secondary-label-hover);
+}
+
+.btn--danger {
+  background-color: var(--btn-danger-bg);
+  color: var(--btn-danger-label);
+}
+.btn--danger:not(:disabled):hover {
+  background-color: var(--btn-danger-bg-hover);
+  color: var(--btn-danger-label-hover);
+}
+
+/* Light mode tokens — Figma defines hover only for primary in light mode, so secondary/danger stay static. */
+@media (prefers-color-scheme: light) {
+  .btn {
+    --btn-primary-bg: #3c94ff;
+    --btn-primary-bg-hover: #42a3ff;
+    --btn-primary-label: #ffffff;
+    --btn-primary-label-hover: #ffffff;
+
+    --btn-secondary-bg: #e7f0f9;
+    --btn-secondary-bg-hover: #e7f0f9;
+    --btn-secondary-label: #526682;
+    --btn-secondary-label-hover: #526682;
+
+    --btn-danger-bg: #f9d9e4;
+    --btn-danger-bg-hover: #f9d9e4;
+    --btn-danger-label: #ff4b4b;
+    --btn-danger-label-hover: #ff4b4b;
+  }
+}

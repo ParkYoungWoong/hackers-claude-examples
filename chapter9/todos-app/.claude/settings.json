@@ -1,0 +1,18 @@
+{
+  "env": {
+    "MAX_MCP_OUTPUT_TOKENS": "50000"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(yes \"\")",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(npm view *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(lsof -nP -iTCP:5173 -iTCP:5174 -sTCP:LISTEN)",
+      "Bash(kill 21164)"
+    ]
+  }
+}
